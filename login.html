@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sign in</title>
+<style>
+*{box-sizing:border-box}
+html{background:#000}
+html,body{margin:0;width:100%;height:100%;color:#fff;font-family:Arial,sans-serif;overflow-x:hidden}
+::selection{background:aliceblue;color:#000}
+.backgrond-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;background:#000}
+.page{position:relative;z-index:1;min-height:100%;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:calc(20px + env(safe-area-inset-top)) 16px calc(20px + env(safe-area-inset-bottom))}
+.head{text-align:center}
+.logo{width:50px;height:50px;border:0;border-radius:10px;color:#fff;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(90deg,#6D00FF,#9D00FF,#db70ff);box-shadow:0 0 15px rgba(219,181,255,.3)}
+.logo svg{width:30px;height:30px}
+.head h2{margin:14px 0 6px;font-size:30px;color:#e8e8e8}
+.head p{margin:0;font-size:16px;color:#b5b5b5;text-shadow:0 0 5px rgba(50,50,50,.8)}
+.main{width:100%;max-width:450px;padding:24px;background:rgba(0,0,0,.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-radius:15px}
+label.t{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:#b7b6b6;margin:0 0 8px}
+label.t+input{margin-bottom:18px}
+#forgot{font-size:12px;font-weight:500;color:#3c84ff;text-decoration:none}
+#forgot:hover{color:#63acfa}
+input[type=email],input[type=password]{display:block;width:100%;height:46px;padding:0 16px;border-radius:10px;border:1px solid #a1a1a1;background:rgba(255,255,255,.1);color:#939393;font:600 16px Arial,sans-serif}
+input::placeholder{color:#afafaf;opacity:.4}
+input:focus{outline:none;background:#fff;color:#333;box-shadow:0 0 4px rgb(168,255,255)}
+input[type=email]:hover,input[type=password]:hover{color:#fff;box-shadow:0 0 4px rgb(168,255,255)}
+input[type=email]:focus:hover,input[type=password]:focus:hover{color:#333}
+.remember{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:#b7b6b6;margin:0 0 20px}
+.remember input{width:18px;height:18px;margin:0;accent-color:rgba(85,249,255,.7)}
+#login{width:100%;height:56px;border:0;border-radius:10px;background:linear-gradient(90deg,#6D00FF,#9D00FF,#db70ff);box-shadow:0 0 15px rgba(219,181,255,.3);color:#fff;font:600 16px Arial,sans-serif;transition:transform .2s ease-in-out}
+#login:hover{transform:translateY(-2px);background:linear-gradient(90deg,#b278ff,#b53dff,#9f0fff)}
+.or{display:flex;align-items:center;gap:12px;margin:22px 0 18px;font-size:12px;font-weight:500;color:rgba(150,150,150,.8);white-space:nowrap}
+.or::before,.or::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.12)}
+.social{display:flex;gap:12px}
+.social button{flex:1;height:46px;display:flex;align-items:center;justify-content:center;gap:10px;border-radius:10px;border:1px solid #a1a1a1;background:rgba(255,255,255,.1);color:#808080;font:600 16px Arial,sans-serif;transition:transform .2s ease-in-out}
+.social button svg{width:22px;height:22px;flex:none}
+.social button:hover{color:#fff;box-shadow:0 0 3px rgb(168,255,255);transform:translateY(-3px)}
+.social button:active{transform:translateY(1px)}
+.signup{margin:0;font-size:13px;color:#ddd;text-align:center}
+.signup a{color:#c37bff;text-decoration:none}
+.signup a:hover{color:turquoise}
+</style>
+</head>
+<body>
+<video class="backgrond-video" src="video.mp4" autoplay muted loop playsinline preload="auto"></video>
+<div class="page">
+<div class="head">
+<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M5.5 2A3.5 3.5 0 0 0 2 5.5v5A3.5 3.5 0 0 0 5.5 14h5a3.5 3.5 0 0 0 3.5-3.5V8a.5.5 0 0 1 1 0v2.5a4.5 4.5 0 0 1-4.5 4.5h-5A4.5 4.5 0 0 1 1 10.5v-5A4.5 4.5 0 0 1 5.5 1H8a.5.5 0 0 1 0 1z"/><path d="M16 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/></svg></div>
+<h2>Welcome back</h2>
+<p>Enter your credentials to access your dashboard</p>
+</div>
+<form class="main">
+<label class="t" for="email">Email Address</label>
+<input type="email" id="email" placeholder="name@kosmic.com" autocomplete="email" required>
+<label class="t" for="password">Password <a id="forgot" href="#">Forgot?</a></label>
+<input type="password" id="password" placeholder="••••••••" autocomplete="current-password" required>
+<label class="remember"><input type="checkbox" id="remember">Remember me</label>
+<input type="submit" id="login" value="Sign in to your account">
+<div class="or">OR CONTINUE WITH</div>
+<div class="social">
+<button type="button" id="google"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>Google</button>
+<button type="button" id="github"><svg viewBox="0 0 16 16" fill="#fff" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</button>
+</div>
+</form>
+<p class="signup">Don't have an account? <a href="#">Create an account</a></p>
+</div>
+<script>
+(function(){
+var v=document.querySelector('.backgrond-video');
+v.muted=true;
+function go(){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+go();v.addEventListener('canplay',go);
+['touchstart','click'].forEach(function(e){document.addEventListener(e,go,{once:true,passive:true});});
+})();
+</script>
+</body>
+</html>
